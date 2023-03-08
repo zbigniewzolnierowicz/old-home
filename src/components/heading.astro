@@ -1,9 +1,25 @@
 ---
+interface Props {
+    me: string
+    description: string
+}
+const { me, description } = Astro.props;
 ---
 
-<style>
-</style>
-
-<div>
-    <slot />
-</div>
+<header id="header" class="limit-width">
+    <div class="box avatar-box">
+        <img
+            src="/avatar.jpg"
+            width="209px"
+            height="209px"
+            alt="Avatar"
+            class="avatar-image"
+        />
+    </div>
+    <div class="box title-box">
+        <h1>
+            {me}
+            <span class="subheading">{description}</span>
+        </h1>
+    </div>
+</header>

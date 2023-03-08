@@ -1,0 +1,7 @@
+---
+const { element: Element = "div", class, ...props } = Astro.props;
+---
+
+<Element class={`box ${class}`} {...props}>
+    <slot />
+</Element>
