@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body, h1, h2, h3, h4, p, span {
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 400;
+}
+
+ul, dl, dd, dt {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
