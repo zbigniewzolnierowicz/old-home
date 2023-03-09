@@ -1,7 +1,7 @@
 ---
-const { element: Element = "div", class, ...props } = Astro.props;
+const { element: Element = "div", ...props } = Astro.props;
 ---
 
-<Element class={`box ${class}`} {...props}>
+<Element {...props} class:list={["box", props.class]}>
     <slot />
 </Element>
