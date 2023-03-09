@@ -1,4 +1,5 @@
 ---
+import Box from './box.astro';
 interface Props {
     me: string
     description: string
@@ -6,8 +7,14 @@ interface Props {
 const { me, description } = Astro.props;
 ---
 
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
+
 <header id="header" class="limit-width">
-    <div class="box avatar-box">
+    <Box element="a" href="/" class="avatar-box">
         <img
             src="/avatar.jpg"
             width="209px"
@@ -15,11 +22,11 @@ const { me, description } = Astro.props;
             alt="Avatar"
             class="avatar-image"
         />
-    </div>
-    <div class="box title-box">
+    </Box>
+    <Box element="a" href="/" class="title-box">
         <h1>
             {me}
             <span class="subheading">{description}</span>
         </h1>
-    </div>
+    </Box>
 </header>
