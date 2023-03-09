@@ -1,0 +1,40 @@
+---
+import Box from "../components/box.astro";
+import MainLayout from "../layouts/main.astro";
+
+const imagePrefix = "/assets/img/gray/";
+const imageSuffix = ".png";
+const images = ["001", "002", "003", "004"].map(
+    (img) => imagePrefix + img + imageSuffix
+);
+---
+
+<style lang="scss">
+    .grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        img {
+            max-width: 100%;
+            object-fit: contain;
+            padding: 0.25rem;
+        }
+    }
+
+    .heading {
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+    }
+</style>
+
+<MainLayout>
+    <Box>
+        <h3 class="heading">The Grayfruit Discord Hall of Fame</h3>
+    </Box>
+    <Box>
+        <div class="grid">
+            {images.map((src) => <img src={src} />)}
+        </div>
+    </Box>
+</MainLayout>

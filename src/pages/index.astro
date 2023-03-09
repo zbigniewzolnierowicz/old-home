@@ -1,192 +1,91 @@
 ---
-import Heading from "../components/heading.astro";
-import Button, { Props as ButtonProps } from "../components/button.astro";
-import Box from "../components/box.astro"
-import "../styles/main.css";
-import "../styles/reset.css";
-import "../styles/pxplus.css";
-
-const me = "zed is not dead";
-const domain = "notdead.cafe";
-const description = "repository of stupidity";
-
-const buttons: ButtonProps[] = [
-    {
-        src: "/assets/img/antinft.webp",
-        alt: "anti NFT",
-    },
-    {
-        src: "/assets/img/hatesquarespace.jpg",
-        alt: "I hate squarespace",
-    },
-    {
-        src: "/assets/img/right_to_repair.jpg",
-        alt: "I support right to repair",
-    },
-    {
-        src: "/assets/img/thiswebsiteisgay.webp",
-        alt: "this website is gay",
-    },
-    {
-        src: "/assets/img/firefox.gif",
-        alt: "get firefox",
-    },
-    {
-        src: "/assets/img/vscbutton.gif",
-        alt: "Visual Studio Code",
-    },
-];
+import MainLayout from "../layouts/main.astro";
+import Box from "../components/box.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
-        <!-- Primary Meta Tags -->
-        <meta name="title" content={domain} />
-        <meta name="description" content={description} />
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://${domain}`} />
-        <meta property="og:title" content={me} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={`https://${domain}/avatar.jpg`} />
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`https://${domain}`} />
-        <meta property="twitter:title" content={me} />
-        <meta property="twitter:description" content={description} />
-        <meta
-            property="twitter:image"
-            content={`https://${domain}/avatar.jpg`}
-        />
-        <title>{me}</title>
-    </head>
-    <body>
-        <Heading description={description} me={me} />
-        <main class="limit-width">
-            <div class="about-myself">
-                <Box class="flex-left" id="who-am-i-grid">
-                    <h2 class="text-center full-width h4">Myself</h2>
-                    <dl>
-                        <dt>Name</dt>
-                        <dd>Zed</dd>
-                        <dt>Pronouns</dt>
-                        <dd>he/they</dd>
-                        <dt>GitHub</dt>
-                        <dd>
-                            <a
-                                rel="me"
-                                href="https://github.com/zbigniewzolnierowicz/"
-                                >link</a
-                            >
-                        </dd>
-                        <dt>GitLab</dt>
-                        <dd>
-                            <a rel="me" href="https://gitlab.com/zzed">link</a>
-                        </dd>
-                        <dt>Discord</dt>
-                        <dd class="normal-case">Zed#0990</dd>
-                        <dt>Twitter</dt>
-                        <dd>
-                            <a rel="me" href="https://twitter.com/zed_not_dead"
-                                >link</a
-                            >
-                        </dd>
-                        <dt>Mastodon (uwu.social)</dt>
-                        <dd>
-                            <a rel="me" href="https://uwu.social/@zed">link</a>
-                        </dd>
-                        <dt>Tumblr</dt>
-                        <dd>
-                            <a
-                                rel="me"
-                                href="https://0x0000b16b00b5.tumblr.com/"
-                                >link</a
-                            >
-                        </dd>
-                        <dt>Grayfruit HoF</dt>
-                        <dd><a rel="me" href="/grayfruit.html">link</a></dd>
-                    </dl>
-                    <h2 class="text-center full-width h4">cool folks</h2>
-                    <ul class="friends-list">
-                        <li>
-                            <a href="https://selfisekai.rocks">selfisekai</a>
-                        </li>
-                        <li><a href="https://sdomi.pl">sdomi</a></li>
-                        <li><a href="https://pjo.carrd.co">pjo</a></li>
-                        <li><a href="https://eda.gay">eden</a></li>
-                    </ul>
-                </Box>
-                <Box class="flex-left">
-                    <p class="normal-case">
-                        My name is Zbigniew, though most people online know me
-                        as Zed, due to the sheer unpronounceability of my real
-                        name. I'm a non-binary web developer, slightly dabbling
-                        in multiple languages, mostly the following:
-                    </p>
-                    <ul class="list">
-                        <li>JavaScript</li>
-                        <li>Rust</li>
-                        <li>C#</li>
-                        <li>Java</li>
-                    </ul>
-                    <p class="normal-case">
-                        I also like sysadminning, having set up a server cluster
-                        at home.
-                    </p>
-                </Box>
-            </div>
-            <Box class="flex-left">
-                <h2 class="text-center full-width">Projects I'm proud of</h2>
-                <ul class="list">
-                    <li>
-                        <a
-                            href="https://github.com/zbigniewzolnierowicz/cluster"
-                            >cluster</a
-                        > - Kubernetes and Helm manifests for my personal cluster
-                    </li>
-                    <li>
-                        <a href="https://gitlab.com/zzed/Kable-Backend">kable</a
-                        > - a Rust server for an unspecified purpose
-                    </li>
-                    <li>
-                        <a href="https://mrdecal.zolnierowi.cz">Mr. Decal</a> - a
-                        website for my father's decal business
-                    </li>
-                </ul>
-            </Box>
-        </main>
-        <footer id="footer" class="limit-width">
-            <Box element="p" class="copyright">© zed is not dead 2022</Box>
-            <Box class="license">
-                <p>
-                    Licensed under <a
-                        rel="license"
-                        href="https://creativecommons.org/licenses/by-sa/4.0/"
-                        >CC BY-SA 4.0</a
+<MainLayout>
+    <div class="about-myself">
+        <Box class="flex-left" id="who-am-i-grid">
+            <h2 class="text-center full-width h4">Myself</h2>
+            <dl>
+                <dt>Name</dt>
+                <dd>Zed</dd>
+                <dt>Pronouns</dt>
+                <dd>he/they</dd>
+                <dt>GitHub</dt>
+                <dd>
+                    <a rel="me" href="https://github.com/zbigniewzolnierowicz/"
+                        >link</a
                     >
-                </p>
-                <a
-                    rel="license"
-                    href="http://creativecommons.org/licenses/by-sa/4.0/"
-                >
-                    <Button
-                        alt="Creative Commons License"
-                        src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
-                    />
-                </a>
-            </Box>
-            <Box class="badges badge-row">
-                {buttons.map((btn) => <Button src={btn.src} alt={btn.alt} />)}
-            </Box>
-        </footer>
-    </body>
-</html>
+                </dd>
+                <dt>GitLab</dt>
+                <dd>
+                    <a rel="me" href="https://gitlab.com/zzed">link</a>
+                </dd>
+                <dt>Discord</dt>
+                <dd class="normal-case">Zed#0990</dd>
+                <dt>Twitter</dt>
+                <dd>
+                    <a rel="me" href="https://twitter.com/zed_not_dead">link</a>
+                </dd>
+                <dt>Mastodon (uwu.social)</dt>
+                <dd>
+                    <a rel="me" href="https://uwu.social/@zed">link</a>
+                </dd>
+                <dt>Tumblr</dt>
+                <dd>
+                    <a rel="me" href="https://0x0000b16b00b5.tumblr.com/"
+                        >link</a
+                    >
+                </dd>
+                <dt>Grayfruit HoF</dt>
+                <dd><a rel="me" href="/grayfruit.html">link</a></dd>
+            </dl>
+            <h2 class="text-center full-width h4">cool folks</h2>
+            <ul class="friends-list">
+                <li>
+                    <a href="https://selfisekai.rocks">selfisekai</a>
+                </li>
+                <li><a href="https://sdomi.pl">sdomi</a></li>
+                <li><a href="https://pjo.carrd.co">pjo</a></li>
+                <li><a href="https://eda.gay">eden</a></li>
+            </ul>
+        </Box>
+        <Box class="flex-left">
+            <p class="normal-case">
+                My name is Zbigniew, though most people online know me as Zed,
+                due to the sheer unpronounceability of my real name. I'm a
+                non-binary web developer, slightly dabbling in multiple
+                languages, mostly the following:
+            </p>
+            <ul class="list">
+                <li>JavaScript</li>
+                <li>Rust</li>
+                <li>C#</li>
+                <li>Java</li>
+            </ul>
+            <p class="normal-case">
+                I also like sysadminning, having set up a server cluster at
+                home.
+            </p>
+        </Box>
+    </div>
+    <Box class="flex-left">
+        <h2 class="text-center full-width">Projects I'm proud of</h2>
+        <ul class="list">
+            <li>
+                <a href="https://github.com/zbigniewzolnierowicz/cluster"
+                    >cluster</a
+                > - Kubernetes and Helm manifests for my personal cluster
+            </li>
+            <li>
+                <a href="https://gitlab.com/zzed/Kable-Backend">kable</a> - a Rust
+                server for an unspecified purpose
+            </li>
+            <li>
+                <a href="https://mrdecal.zolnierowi.cz">Mr. Decal</a> - a website
+                for my father's decal business
+            </li>
+        </ul>
+    </Box>
+</MainLayout>

@@ -1,0 +1,102 @@
+---
+import Heading from "../components/heading.astro";
+import Button, { Props as ButtonProps } from "../components/button.astro";
+import Box from "../components/box.astro";
+import "../styles/main.css";
+import "../styles/reset.css";
+import "../styles/pxplus.css";
+
+const me = "zed is not dead";
+const domain = "notdead.cafe";
+const description = "repository of stupidity";
+
+const buttons: ButtonProps[] = [
+    {
+        src: "/assets/img/antinft.webp",
+        alt: "anti NFT",
+    },
+    {
+        src: "/assets/img/hatesquarespace.jpg",
+        alt: "I hate squarespace",
+    },
+    {
+        src: "/assets/img/right_to_repair.jpg",
+        alt: "I support right to repair",
+    },
+    {
+        src: "/assets/img/thiswebsiteisgay.webp",
+        alt: "this website is gay",
+    },
+    {
+        src: "/assets/img/firefox.gif",
+        alt: "get firefox",
+    },
+    {
+        src: "/assets/img/vscbutton.gif",
+        alt: "Visual Studio Code",
+    },
+];
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+        <!-- Primary Meta Tags -->
+        <meta name="title" content={domain} />
+        <meta name="description" content={description} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://${domain}`} />
+        <meta property="og:title" content={me} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={`https://${domain}/avatar.jpg`} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`https://${domain}`} />
+        <meta property="twitter:title" content={me} />
+        <meta property="twitter:description" content={description} />
+        <meta
+            property="twitter:image"
+            content={`https://${domain}/avatar.jpg`}
+        />
+        <title>{me}</title>
+    </head>
+    <body>
+        <Heading description={description} me={me} />
+        <main class="limit-width">
+            <slot />
+        </main>
+        <footer id="footer" class="limit-width">
+            <Box element="p" class="copyright">© zed is not dead 2022</Box>
+            <Box class="license">
+                <p>
+                    Licensed under <a
+                        rel="license"
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        >CC BY-SA 4.0</a
+                    >
+                </p>
+                <a
+                    rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/"
+                >
+                    <Button
+                        alt="Creative Commons License"
+                        src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+                    />
+                </a>
+            </Box>
+            <Box class="badges badge-row">
+                {buttons.map((btn) => <Button src={btn.src} alt={btn.alt} />)}
+            </Box>
+        </footer>
+    </body>
+</html>
