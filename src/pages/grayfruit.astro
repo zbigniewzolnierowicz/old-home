@@ -4,10 +4,10 @@ import MainLayout from "../layouts/main.astro";
 
 const imagePrefix = "/assets/img/gray/";
 const imageSuffix = ".png";
-const imageIndices = Array.from({ length: 11 }, (_, i) => `${i + 1}`.padStart(3, '0'))
-const images = imageIndices.map(
-    (img) => imagePrefix + img + imageSuffix
+const imageIndices = Array.from({ length: 13 }, (_, i) =>
+    `${i + 1}`.padStart(3, "0")
 );
+const images = imageIndices.map((img) => imagePrefix + img + imageSuffix);
 ---
 
 <style lang="scss">
