@@ -2,12 +2,9 @@
 import Box from "../components/box.astro";
 import MainLayout from "../layouts/main.astro";
 
-const imagePrefix = "/assets/img/gray/";
-const imageSuffix = ".png";
-const imageIndices = Array.from({ length: 13 }, (_, i) =>
-    `${i + 1}`.padStart(3, "0")
-);
-const images = imageIndices.map((img) => imagePrefix + img + imageSuffix);
+const images = await Astro.glob('/src/content/gray/*').then(files => {
+    return files.map(img => img.default);
+});
 ---
 
 <style lang="scss">
@@ -38,7 +35,9 @@ const images = imageIndices.map((img) => imagePrefix + img + imageSuffix);
     </Box>
     <Box>
         <div class="grid">
-            {images.map((src) => <img src={src} />)}
+            {images.map((image) => (
+                <a target="_blank" rel="noopener noreferrer" href={image.src}><img src={image.src} /></a>
+            ))}
         </div>
     </Box>
 </MainLayout>
